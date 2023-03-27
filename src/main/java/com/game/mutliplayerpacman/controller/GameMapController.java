@@ -30,6 +30,24 @@ public class GameMapController {
         return ResponseEntity.ok().body(gmd);
     }
 
+    @GetMapping("/generate")
+    public ResponseEntity<GameMapDto> generateGameMap(@RequestParam int x, @RequestParam int y) {
+        if (x <= 0 || y <= 0 || x > 50 || y > 50) {
+            return ResponseEntity.badRequest().build();
+        }
+        GameMapDto gmd = gameMapService.generateRandomMap(x, y);
+        if (gmd == null) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                    .path("/{id}")
+                    .buildAndExpand(gmd.getId())
+                    .toUri();
+
+            return ResponseEntity.created(uri).body(gmd);
+        }
+    }
+
     @PostMapping("/")
     public ResponseEntity<GameMapDto> saveMap(@RequestBody GameMapDto gmdto) {
         GameMapDto gmd = gameMapService.saveMap(gmdto);

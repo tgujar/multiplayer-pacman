@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class MutliplayerpacmanApplication {
+public class  MutliplayerpacmanApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MutliplayerpacmanApplication.class, args);

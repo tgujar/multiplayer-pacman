@@ -9,4 +9,6 @@ public interface GameMapService {
     List<GameMapDto> findAllMaps();
     GameMapDto findMap(Long id);
     GameMapDto saveMap(GameMapDto gm);
+
+    GameMapDto generateRandomMap(int x, int y);
 }
