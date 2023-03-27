@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "map")
-public class Map {
+@Table(name = "gamemap")
+public class GameMap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
