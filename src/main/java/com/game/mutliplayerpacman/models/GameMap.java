@@ -1,5 +1,5 @@
 package com.game.mutliplayerpacman.models;
-import com.game.mutliplayerpacman.service.Coordinate;
+import com.game.mutliplayerpacman.service.impl.Coordinate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

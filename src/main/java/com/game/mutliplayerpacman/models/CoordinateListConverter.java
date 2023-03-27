@@ -1,6 +1,6 @@
 package com.game.mutliplayerpacman.models;
 
-import com.game.mutliplayerpacman.service.Coordinate;
+import com.game.mutliplayerpacman.service.impl.Coordinate;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import java.io.*;

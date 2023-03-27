@@ -1,5 +1,5 @@
 package com.game.mutliplayerpacman.dto;
-import com.game.mutliplayerpacman.service.Coordinate;
+import com.game.mutliplayerpacman.service.impl.Coordinate;
 import lombok.Builder;
 import lombok.Data;
 
