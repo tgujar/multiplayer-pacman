@@ -1,8 +1,13 @@
 package com.game.mutliplayerpacman.dto;
 import com.game.mutliplayerpacman.service.Coordinate;
+import lombok.Builder;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
+@Builder
 public class GameMapDto {
     private Long id;
     private String name;
