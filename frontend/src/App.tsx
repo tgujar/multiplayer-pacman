@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import GameMap from "./components/GameMap";
+import { GameMapDto } from "./api/mutliplayerpacman";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+  let gmd: GameMapDto = {
+    id: 6,
+    name: "random",
+    xdim: 5,
+    ydim: 5,
+    cells: [
+      [
+        { left: false, down: true, right: true, up: true, power: "NONE" },
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: false, up: false, power: "NONE" },
+        { left: false, down: false, right: false, up: true, power: "NONE" },
+        { left: false, down: false, right: false, up: false, power: "NONE" },
+      ],
+      [
+        { left: true, down: false, right: true, up: true, power: "NONE" },
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: true, right: true, up: false, power: "NONE" },
+      ],
+      [
+        { left: true, down: false, right: false, up: false, power: "NONE" },
+        { left: false, down: true, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: false, up: false, power: "NONE" },
+        { left: false, down: false, right: false, up: false, power: "NONE" },
+        { left: false, down: false, right: true, up: true, power: "NONE" },
+      ],
+      [
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: false, up: true, power: "NONE" },
+        { left: false, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: true, up: false, power: "NONE" },
+        { left: true, down: false, right: false, up: false, power: "NONE" },
+      ],
+      [
+        { left: false, down: true, right: false, up: false, power: "NONE" },
+        { left: false, down: true, right: true, up: false, power: "NONE" },
+        { left: true, down: true, right: false, up: false, power: "NONE" },
+        { left: false, down: true, right: false, up: false, power: "NONE" },
+        { left: false, down: false, right: false, up: false, power: "NONE" },
+      ],
+    ],
+    createdOn: new Date("2023-03-28T19:56:26.455987"),
+    updatedOn: new Date("2023-03-28T19:56:26.456243"),
+  };
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GameMap gmd={gmd} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

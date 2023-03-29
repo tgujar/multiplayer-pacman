@@ -15,7 +15,7 @@ public class MapGen {
                 map[i][j] = GameCellDto.builder()
                         .left(j == 0 ? rd.nextBoolean(): map[i][j-1].isRight()) // make sure walls match previous placed
                         .right(rd.nextBoolean())
-                        .up(i == 0 ? rd.nextBoolean(): map[i-1][j].isUp())
+                        .up(i == 0 ? rd.nextBoolean(): map[i-1][j].isDown())
                         .down(rd.nextBoolean())
                         .power(Power.NONE)
                         .build();
