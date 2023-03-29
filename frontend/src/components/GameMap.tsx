@@ -8,7 +8,7 @@ type Props = {
   gmd: GameMapDto;
 };
 
-const CellSize = 3;
+const CellSize = 7;
 
 const GameMap: React.FC<Props> = ({ gmd }) => {
   const [unit, setUnit] = useState(1);
@@ -23,10 +23,7 @@ const GameMap: React.FC<Props> = ({ gmd }) => {
   // camera.lookAt(new THREE.Vector3(0, 0, 0)); // Set look at coordinate like this
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-      <Canvas
-        style={{ backgroundColor: "white" }}
-        camera={{ position: [0, 0, unit * 15] }}
-      >
+      <Canvas camera={{ position: [0, 0, unit * 30] }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         {/* <Wall
@@ -58,7 +55,11 @@ function getWalls(gmd: GameMapDto, unit: number): JSX.Element[] {
           <Wall
             key={i + "," + j + "u"}
             meshprops={{
-              position: [center[0], center[1] + unit * 1.25, 0],
+              position: [
+                center[0],
+                center[1] + unit * (Math.floor(CellSize / 2) + 0.25),
+                0,
+              ],
             }}
             dimensions={[CellSize * unit, unit, unit]}
             unit={unit}
@@ -69,7 +70,11 @@ function getWalls(gmd: GameMapDto, unit: number): JSX.Element[] {
           <Wall
             key={i + "," + j + "d"}
             meshprops={{
-              position: [center[0], center[1] - unit * 1.25, 0],
+              position: [
+                center[0],
+                center[1] - unit * (Math.floor(CellSize / 2) + 0.25),
+                0,
+              ],
             }}
             dimensions={[CellSize * unit, unit, unit]}
             unit={unit}
@@ -81,7 +86,11 @@ function getWalls(gmd: GameMapDto, unit: number): JSX.Element[] {
           <Wall
             key={i + "," + j + "l"}
             meshprops={{
-              position: [center[0] - unit * 1.25, center[1], 0],
+              position: [
+                center[0] - unit * (Math.floor(CellSize / 2) + 0.25),
+                center[1],
+                0,
+              ],
             }}
             dimensions={[unit, CellSize * unit, unit]}
             unit={unit}
@@ -93,7 +102,11 @@ function getWalls(gmd: GameMapDto, unit: number): JSX.Element[] {
           <Wall
             key={i + "," + j + "r"}
             meshprops={{
-              position: [center[0] + unit * 1.25, center[1], 0],
+              position: [
+                center[0] + unit * (Math.floor(CellSize / 2) + 0.25),
+                center[1],
+                0,
+              ],
             }}
             dimensions={[unit, CellSize * unit, unit]}
             unit={unit}
